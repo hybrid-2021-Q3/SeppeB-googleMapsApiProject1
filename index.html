@@ -31,6 +31,12 @@
         google.maps.Map(document.getElementById('map'), options);
 
 
+        <!--    listen for click on map    -->
+        google.maps.event.addListener(map, 'click',
+            function(event){
+                addMarker({coords:event.latLng});
+            });
+
 <!--        ------------------------------------------------------------->
 
 <!--        &lt;!&ndash;    make marker     &ndash;&gt;-->
@@ -48,6 +54,7 @@
 <!--        marker.addListener('click', function(){-->
 <!--            infoWindow.open(map, marker);-->
 <!--        });-->
+
 <!--        ------------------------------------------------------------->
 
         let markers = [
