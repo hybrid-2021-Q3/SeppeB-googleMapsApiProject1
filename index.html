@@ -11,8 +11,6 @@
             height:400px;
             width:100%;
         }
-
-
     </style>
 </head>
 <body>
@@ -26,36 +24,17 @@
             center: {lat:51.1667,lng:4.4667}
         }
 
-        <!--    make new map    -->
+        <!--make new map-->
         let map = new
         google.maps.Map(document.getElementById('map'), options);
 
 
-        <!--    listen for click on map    -->
+        <!--listen for click on map-->
         google.maps.event.addListener(map, 'click',
             function(event){
                 addMarker({coords:event.latLng});
-            });
-
-<!--        ------------------------------------------------------------->
-
-<!--        &lt;!&ndash;    make marker     &ndash;&gt;-->
-<!--        let marker = new google.maps.Marker({-->
-<!--            position:{lat:51.260197,lng:4.402771},-->
-<!--            map:map-->
-<!--        });-->
-
-
-<!--        &lt;!&ndash;    infoWindow      &ndash;&gt;-->
-<!--        let infoWindow =  new google.maps.InfoWindow({-->
-<!--            content:'<h1>test test</h1>'-->
-<!--        });-->
-
-<!--        marker.addListener('click', function(){-->
-<!--            infoWindow.open(map, marker);-->
-<!--        });-->
-
-<!--        ------------------------------------------------------------->
+            }
+        );
 
         let markers = [
             {
@@ -63,17 +42,17 @@
                 content:'<h1>joe mama</h1>'
             },
             {
-            coords:{lat:51.1691158,lng:4.4662486}
+                coords:{lat:51.1691158,lng:4.4662486}
             }
         ];
 
-<!--        loop voor marker array-->
+        <!--loop voor marker array-->
         for(var i =0; i < markers.length; i++){
             addMarker(markers[i]);
         }
 
 
-<!--        marker function-->
+        <!--marker function-->
         function addMarker(props){
             let marker = new google.maps.Marker({
             position:props.coords,
@@ -90,14 +69,10 @@
         });
         }
         }
-
     }
-
-
 </script>
 <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc7VND4aT7LzKYc0QFQJ1tNnM_UOpLoZE&libraries=places&callback=initMap">
 </script>
-
 </body>
 </html>
