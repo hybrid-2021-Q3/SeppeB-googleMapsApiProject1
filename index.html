@@ -51,15 +51,29 @@
 <!--        ------------------------------------------------------------->
 
 
-        addMarker({lat:51.260197,lng:4.402771});
-        addMarker({lat:51.1691158,lng:4.4662486});
+        addMarker({
+            coords:{lat:51.260197,lng:4.402771},
+            content:'<h1>joe mama</h1>'
+        });
+
+        addMarker({coords:{lat:51.1691158,lng:4.4662486}});
 
 <!--        marker function-->
-        function addMarker(coords){
+        function addMarker(props){
             let marker = new google.maps.Marker({
-            position:coords,
-            map:map
+            position:props.coords,
+            map:map,
         });
+
+        if(props.content){
+            let infoWindow =  new google.maps.InfoWindow({
+            content: props.content
+        });
+
+        marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+        });
+        }
         }
 
     }
