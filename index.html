@@ -50,13 +50,21 @@
 <!--        });-->
 <!--        ------------------------------------------------------------->
 
+        let markers = [
+            {
+                coords:{lat:51.260197,lng:4.402771},
+                content:'<h1>joe mama</h1>'
+            },
+            {
+            coords:{lat:51.1691158,lng:4.4662486}
+            }
+        ];
 
-        addMarker({
-            coords:{lat:51.260197,lng:4.402771},
-            content:'<h1>joe mama</h1>'
-        });
+<!--        loop voor marker array-->
+        for(var i =0; i < markers.length; i++){
+            addMarker(markers[i]);
+        }
 
-        addMarker({coords:{lat:51.1691158,lng:4.4662486}});
 
 <!--        marker function-->
         function addMarker(props){
